@@ -1,4 +1,4 @@
-﻿using SysAcopioDeRL.Models;
+﻿using SysAcopioDeRL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

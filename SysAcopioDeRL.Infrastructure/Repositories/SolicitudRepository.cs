@@ -19,7 +19,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         {
             return await dbContext.Solicitudes
                 .Include(s => s.RecursoSolicitudes)
-                .Where(s => s.Urgencia == urgencia && s.Activo)
+                .Where(s => s.Urgencia == urgencia && s.Estado)
                 .ToListAsync();
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
             return await dbContext.Solicitudes
                 .Include(s => s.RecursoSolicitudes)
                 .ThenInclude(rs => rs.IdRecurso)
-                .Where(s => s.Activo == true && s.RecursoSolicitudes
+                .Where(s => s.Estado == true && s.RecursoSolicitudes
                     .Any(rs => rs.IdRecurso == idRecurso))
                 .ToListAsync();
         }
@@ -56,7 +56,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         public async Task<IEnumerable<Solicitud>> GetSolicitudesActivasAsync()
         {
             return await dbContext.Solicitudes
-                .Where(s => s.Activo == true)
+                .Where(s => s.Estado == true)
                 .ToListAsync();
         }
     }

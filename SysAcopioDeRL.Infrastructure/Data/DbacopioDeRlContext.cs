@@ -35,7 +35,7 @@ public partial class DbacopioDeRlContext : DbContext
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"));
+        => optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStringARL"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

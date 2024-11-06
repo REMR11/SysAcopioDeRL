@@ -19,14 +19,15 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
             dbSetEntity = pContext.Set<T>();
         }
 
-        public async Task<int> AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
             if (entity == null) throw new ArgumentNullException(nameof(entity), "Registro no puede ser nulo.");
 
             try
             {
                 await dbSetEntity.AddAsync(entity);
-                return await dbContext.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
+                return entity;
             }
             catch (DbUpdateException dbEx) { throw new Exception("Error al agregar el registro.", dbEx); }
             catch (Exception ex) { throw new Exception($"A ocurrido un error inesperado: {ex.Message}", ex); }
@@ -76,5 +77,9 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
             catch(Exception ex) { throw new Exception($"Error eliminando el registro: {ex.Message}"); }
         }
 
+        public Task<int> DeleteLogicAsync(long id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

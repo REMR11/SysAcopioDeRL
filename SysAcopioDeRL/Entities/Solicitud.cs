@@ -21,8 +21,8 @@ public partial class Solicitud
     [Column("fecha", TypeName = "datetime")]
     public DateTime Fecha { get; set; }
 
-    [Column("activo")]
-    public bool Activo { get; set; }
+    [Column("estado")]
+    public bool Estado { get; set; }
 
     [Column("nombre_solicitante")]
     [StringLength(150)]

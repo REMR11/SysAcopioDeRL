@@ -28,6 +28,11 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        /// <summary>
+        /// Metodo para obtener un listado de donaciones segun el id de recurso
+        /// </summary>
+        /// <param name="idRecurso"></param>
+        /// <returns>Listado de donaciones que coinciden con el id de recurso</returns>
         public async Task<IEnumerable<RecursoDonacion>> GetByRecursoAsync(long idRecurso)
         {
             return await dbContext.RecursoDonaciones

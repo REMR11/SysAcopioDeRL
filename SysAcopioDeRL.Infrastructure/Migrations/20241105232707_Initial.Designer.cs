@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SysAcopioDeRL.Entities;
+using SysAcopioDeRL.Infrastructure;
 
 #nullable disable
 
-namespace SysAcopioDeRL.Migrations
+namespace SysAcopioDeRL.Infrastructure.Migrations
 {
     [DbContext(typeof(DbacopioDeRlContext))]
-    [Migration("20241105211429_Initial")]
+    [Migration("20241105232707_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -318,7 +318,7 @@ namespace SysAcopioDeRL.Migrations
             modelBuilder.Entity("SysAcopioDeRL.Entities.Donacion", b =>
                 {
                     b.HasOne("SysAcopioDeRL.Entities.Proveedor", "IdProveedorNavigation")
-                        .WithMany("Donacions")
+                        .WithMany("Donaciones")
                         .HasForeignKey("IdProveedor")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -342,14 +342,14 @@ namespace SysAcopioDeRL.Migrations
             modelBuilder.Entity("SysAcopioDeRL.Entities.RecursoDonacion", b =>
                 {
                     b.HasOne("SysAcopioDeRL.Entities.Donacion", "IdDonacionNavigation")
-                        .WithMany("RecursoDonacions")
+                        .WithMany("RecursoDonaciones")
                         .HasForeignKey("IdDonacion")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_recurso_donacion_donacion");
 
                     b.HasOne("SysAcopioDeRL.Entities.Recurso", "IdRecursoNavigation")
-                        .WithMany("RecursoDonacions")
+                        .WithMany("RecursoDonaciones")
                         .HasForeignKey("IdRecurso")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -363,14 +363,14 @@ namespace SysAcopioDeRL.Migrations
             modelBuilder.Entity("SysAcopioDeRL.Entities.RecursoSolicitud", b =>
                 {
                     b.HasOne("SysAcopioDeRL.Entities.Recurso", "IdRecursoNavigation")
-                        .WithMany("RecursoSolicituds")
+                        .WithMany("RecursoSolicitudes")
                         .HasForeignKey("IdRecurso")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_recurso_solicitud_recurso");
 
                     b.HasOne("SysAcopioDeRL.Entities.Solicitud", "IdSolicitudNavigation")
-                        .WithMany("RecursoSolicituds")
+                        .WithMany("RecursoSolicitudes")
                         .HasForeignKey("IdSolicitud")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -395,19 +395,19 @@ namespace SysAcopioDeRL.Migrations
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.Donacion", b =>
                 {
-                    b.Navigation("RecursoDonacions");
+                    b.Navigation("RecursoDonaciones");
                 });
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.Proveedor", b =>
                 {
-                    b.Navigation("Donacions");
+                    b.Navigation("Donaciones");
                 });
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.Recurso", b =>
                 {
-                    b.Navigation("RecursoDonacions");
+                    b.Navigation("RecursoDonaciones");
 
-                    b.Navigation("RecursoSolicituds");
+                    b.Navigation("RecursoSolicitudes");
                 });
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.Rol", b =>
@@ -417,7 +417,7 @@ namespace SysAcopioDeRL.Migrations
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.Solicitud", b =>
                 {
-                    b.Navigation("RecursoSolicituds");
+                    b.Navigation("RecursoSolicitudes");
                 });
 
             modelBuilder.Entity("SysAcopioDeRL.Entities.TipoRecurso", b =>

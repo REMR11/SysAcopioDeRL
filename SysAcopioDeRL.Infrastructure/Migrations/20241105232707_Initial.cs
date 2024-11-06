@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SysAcopioDeRL.Migrations
+namespace SysAcopioDeRL.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

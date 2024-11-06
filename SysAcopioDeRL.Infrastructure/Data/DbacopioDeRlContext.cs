@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using SysAcopioDeRL.Entities;
 
-namespace SysAcopioDeRL.Entities;
+namespace SysAcopioDeRL.Infrastructure;
 
 public partial class DbacopioDeRlContext : DbContext
 {

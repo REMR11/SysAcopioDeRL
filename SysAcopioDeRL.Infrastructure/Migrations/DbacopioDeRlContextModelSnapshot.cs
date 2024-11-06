@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SysAcopioDeRL.Entities;
+using SysAcopioDeRL.Infrastructure;
 
 #nullable disable
 
-namespace SysAcopioDeRL.Migrations
+namespace SysAcopioDeRL.Infrastructure.Migrations
 {
     [DbContext(typeof(DbacopioDeRlContext))]
     partial class DbacopioDeRlContextModelSnapshot : ModelSnapshot

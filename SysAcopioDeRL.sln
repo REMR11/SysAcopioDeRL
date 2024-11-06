@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SysAcopioDeRL", "SysAcopioD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysAcopioDeRL.UIDesktop", "SysAcopioDeRL.UIDesktop\SysAcopioDeRL.UIDesktop.csproj", "{8C5917BC-CD72-4F19-926D-81AAD7E27A32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysAcopioDeRL.Infrastructure", "SysAcopioDeRL.Infrastructure\SysAcopioDeRL.Infrastructure.csproj", "{58D8BD10-2268-43BC-AEF3-24D63E40153F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8C5917BC-CD72-4F19-926D-81AAD7E27A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C5917BC-CD72-4F19-926D-81AAD7E27A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C5917BC-CD72-4F19-926D-81AAD7E27A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D8BD10-2268-43BC-AEF3-24D63E40153F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D8BD10-2268-43BC-AEF3-24D63E40153F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D8BD10-2268-43BC-AEF3-24D63E40153F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D8BD10-2268-43BC-AEF3-24D63E40153F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

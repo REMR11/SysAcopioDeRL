@@ -14,6 +14,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         public RecursoSolicitudRepository(DbacopioDeRlContext pContext) : base(pContext)
         {
         }
+
         /// <summary>
         /// Metodo para obtener un listado de recursos por Id
         /// </summary>

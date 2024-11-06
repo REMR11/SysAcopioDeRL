@@ -10,7 +10,7 @@ namespace SysAcopioDeRL.Interfaces
     public interface IDonacionRepository
     {
         Task<IEnumerable<Donacion>> GetByProveedorAsync(long idProveedor);
-        Task<IEnumerable<Donacion>> GetByFechasAsync(DateTime fechaInicio, DateTime fechaFin);
+        Task<IEnumerable<Donacion>> GetByFechasAsync(DateTime fecha);
         Task<IEnumerable<RecursoDonacion>> GetRecursosDonacionAsync(long idDonacion);
     }
 }

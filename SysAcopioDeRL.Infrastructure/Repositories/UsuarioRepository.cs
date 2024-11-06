@@ -53,6 +53,11 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Rol>> GetRolesAsync()
+        {
+            return await dbContext.Rols.ToListAsync();
+        }
+
         /// <summary>
         /// Metodo para obtener Usuarios activos en sistema
         /// </summary>

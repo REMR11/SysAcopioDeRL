@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SysAcopioDeRL.Infrastructure\SysAcopioDeRL.Infrastructure.csproj">
+      <Project>{58d8bd10-2268-43bc-aef3-24d63e40153f}</Project>
+      <Name>SysAcopioDeRL.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SysAcopioDeRL\SysAcopioDeRL.csproj">
+      <Project>{8c6e0e2a-3b27-4a23-a457-a0957aa62483}</Project>
+      <Name>SysAcopioDeRL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

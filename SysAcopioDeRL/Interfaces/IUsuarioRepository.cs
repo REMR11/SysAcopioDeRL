@@ -13,5 +13,6 @@ namespace SysAcopioDeRL.Interfaces
         Task<Usuario> GetByAliasAsync(string alias);
         Task<IEnumerable<Usuario>> GetByRolAsync(long idRol);
         Task<IEnumerable<Usuario>> GetUsuariosActivosAsync();
+        Task<IEnumerable<Rol>> GetRolesAsync();
     }
 }

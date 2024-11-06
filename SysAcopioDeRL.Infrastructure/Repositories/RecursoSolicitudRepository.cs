@@ -21,7 +21,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Listado de recursos que coincidan con el Id</returns>
         public async Task<IEnumerable<RecursoSolicitud>> GetByRecursoAsync(long idRecurso)
         {
-            return await dbContext.RecursoSolicituds
+            return await dbContext.RecursoSolicitudes
                 .Include(rs => rs.IdRecurso)
                 .Include(rs => rs.IdSolicitud)
                 .Where(rs => rs.IdRecurso == idRecurso)
@@ -36,7 +36,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Listado de solicitudes que coinciden con el Id</returns>
         public async Task<IEnumerable<RecursoSolicitud>> GetBySolicitudAsync(long idSolicitud)
         {
-            return await dbContext.RecursoSolicituds
+            return await dbContext.RecursoSolicitudes
                 .Include(rs => rs.IdRecurso)
                 .Include(rs => rs.IdSolicitud)
                 .Where(rs => rs.IdSolicitud == idSolicitud)

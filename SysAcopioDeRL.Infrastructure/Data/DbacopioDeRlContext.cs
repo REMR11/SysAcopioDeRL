@@ -16,26 +16,25 @@ public partial class DbacopioDeRlContext : DbContext
     {
     }
 
-    public virtual DbSet<Donacion> Donacions { get; set; }
+    public virtual DbSet<Donacion> Donaciones { get; set; }
 
-    public virtual DbSet<Proveedor> Proveedors { get; set; }
+    public virtual DbSet<Proveedor> Proveedores { get; set; }
 
     public virtual DbSet<Recurso> Recursos { get; set; }
 
-    public virtual DbSet<RecursoDonacion> RecursoDonacions { get; set; }
+    public virtual DbSet<RecursoDonacion> RecursoDonaciones { get; set; }
 
-    public virtual DbSet<RecursoSolicitud> RecursoSolicituds { get; set; }
+    public virtual DbSet<RecursoSolicitud> RecursoSolicitudes { get; set; }
 
     public virtual DbSet<Rol> Rols { get; set; }
 
-    public virtual DbSet<Solicitud> Solicituds { get; set; }
+    public virtual DbSet<Solicitud> Solicitudes { get; set; }
 
     public virtual DbSet<TipoRecurso> TipoRecursos { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionString"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

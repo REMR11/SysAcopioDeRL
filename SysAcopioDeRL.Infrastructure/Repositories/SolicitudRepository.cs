@@ -17,7 +17,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Lista de solicitudes que coinciden con el nivel de urgencia </returns>
         public async Task<IEnumerable<Solicitud>> GetByUrgenciaAsync(byte urgencia)
         {
-            return await dbContext.Solicituds
+            return await dbContext.Solicitudes
                 .Include(s => s.RecursoSolicitudes)
                 .Where(s => s.Urgencia == urgencia && s.Activo)
                 .ToListAsync();
@@ -29,7 +29,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Lista de solicitudes activas que coinciden con el id del recurso proporcionado</returns>
         public async Task<IEnumerable<Solicitud>> GetRecursosActivos(long idRecurso)
         {
-            return await dbContext.Solicituds
+            return await dbContext.Solicitudes
                 .Include(s => s.RecursoSolicitudes)
                 .ThenInclude(rs => rs.IdRecurso)
                 .Where(s => s.Activo == true && s.RecursoSolicitudes
@@ -44,7 +44,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Lista de recursosSolicitud que coinciden con el id proporcionado</returns>
         public async Task<IEnumerable<RecursoSolicitud>> GetRecursosSolicitudAsync(long idSolicitud)
         {
-            return await dbContext.RecursoSolicituds
+            return await dbContext.RecursoSolicitudes
                 .Where(rs => rs.IdSolicitud == idSolicitud)
                 .ToListAsync();
         }
@@ -55,7 +55,7 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         /// <returns> Lista de solicitudes activas </returns>
         public async Task<IEnumerable<Solicitud>> GetSolicitudesActivasAsync()
         {
-            return await dbContext.Solicituds
+            return await dbContext.Solicitudes
                 .Where(s => s.Activo == true)
                 .ToListAsync();
         }

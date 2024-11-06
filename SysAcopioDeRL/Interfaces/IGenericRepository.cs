@@ -9,9 +9,9 @@ namespace SysAcopioDeRL.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
+        Task<int> AddAsync(T entity);
         Task<T> GetByIdAsync(long id);
-        Task<T> AddAsync(T entity);
-        Task UpdateAsync(T entity);
-        Task DeleteAsync(long id);
+        Task<int> UpdateAsync(T entity);
+        Task<int> DeleteAsync(long id);
     }
 }

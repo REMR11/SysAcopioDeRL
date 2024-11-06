@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SysAcopioDeRL.Entities;
 using SysAcopioDeRL.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SysAcopioDeRL.Infrastructure.Repositories
 {
@@ -15,32 +10,54 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         {
         }
 
+        /// <summary>
+        /// Metodo para obtener solicitudes segun su nivel de urgencia
+        /// </summary>
+        /// <param name="urgencia"></param>
+        /// <returns> Lista de solicitudes que coinciden con el nivel de urgencia </returns>
         public async Task<IEnumerable<Solicitud>> GetByUrgenciaAsync(byte urgencia)
         {
             return await dbContext.Solicituds
                 .Include(s => s.RecursoSolicitudes)
-                .ThenInclude(rs => rs.IdRecurso)
                 .Where(s => s.Urgencia == urgencia && s.Activo)
                 .ToListAsync();
         }
-
+        /// <summary>
+        /// Metodo para obtener solicitudes activas asociadas a un recurso especifico
+        /// </summary>
+        /// <param name="idRecurso"></param>
+        /// <returns> Lista de solicitudes activas que coinciden con el id del recurso proporcionado</returns>
         public async Task<IEnumerable<Solicitud>> GetRecursosActivos(long idRecurso)
         {
             return await dbContext.Solicituds
                 .Include(s => s.RecursoSolicitudes)
                 .ThenInclude(rs => rs.IdRecurso)
-                .Where(s => s.Activo ==true)
+                .Where(s => s.Activo == true && s.RecursoSolicitudes
+                    .Any(rs => rs.IdRecurso == idRecurso))
                 .ToListAsync();
         }
 
-        public Task<IEnumerable<RecursoSolicitud>> GetRecursosSolicitudAsync(long idSolicitud)
+        /// <summary>
+        /// Metodo para obtener recursos relacionados a una solicitud
+        /// </summary>
+        /// <param name="idSolicitud"></param>
+        /// <returns> Lista de recursosSolicitud que coinciden con el id proporcionado</returns>
+        public async Task<IEnumerable<RecursoSolicitud>> GetRecursosSolicitudAsync(long idSolicitud)
         {
-            throw new NotImplementedException();
+            return await dbContext.RecursoSolicituds
+                .Where(rs => rs.IdSolicitud == idSolicitud)
+                .ToListAsync();
         }
 
-        public Task<IEnumerable<Solicitud>> GetSolicitudesActivasAsync()
+        /// <summary>
+        /// Metodo para obtener solicitudes en estado activo
+        /// </summary>
+        /// <returns> Lista de solicitudes activas </returns>
+        public async Task<IEnumerable<Solicitud>> GetSolicitudesActivasAsync()
         {
-            throw new NotImplementedException();
+            return await dbContext.Solicituds
+                .Where(s => s.Activo == true)
+                .ToListAsync();
         }
     }
 }

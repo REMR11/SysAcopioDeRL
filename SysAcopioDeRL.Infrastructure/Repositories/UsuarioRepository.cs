@@ -1,12 +1,32 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SysAcopioDeRL.Entities;
 using SysAcopioDeRL.Interfaces;
+using System.Data;
+using System.Reflection.Metadata.Ecma335;
 
 namespace SysAcopioDeRL.Infrastructure.Repositories
 {
     public class UsuarioRepository : GenericRepository<Usuario>, IUsuarioRepository
     {
         public UsuarioRepository(DbacopioDeRlContext pContext) : base(pContext) { }
+
+        public Task<bool> CheckPassword(string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteLogicAsync(long id)
+        {
+            try 
+            { 
+                var entity = await GetByIdAsync(id);
+                if(entity == null) return false;
+                entity.Estado = false;
+                await dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }    
+        }
 
         /// <summary>
         /// Metodo para obtener un usuario segun su alias

@@ -77,9 +77,5 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
             catch(Exception ex) { throw new Exception($"Error eliminando el registro: {ex.Message}"); }
         }
 
-        public Task<int> DeleteLogicAsync(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

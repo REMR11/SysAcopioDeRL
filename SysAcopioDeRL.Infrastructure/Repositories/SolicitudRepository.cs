@@ -9,7 +9,19 @@ namespace SysAcopioDeRL.Infrastructure.Repositories
         public SolicitudRepository(DbacopioDeRlContext pContext) : base(pContext)
         {
         }
-
+        public async Task<bool> DeleteLogicAsync(long id)
+        {
+            try
+            {
+                var entity = await GetByIdAsync(id);
+                if (entity == null) return false;
+                entity.Estado = false;
+                await dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+        }
+            
         /// <summary>
         /// Metodo para obtener solicitudes segun su nivel de urgencia
         /// </summary>

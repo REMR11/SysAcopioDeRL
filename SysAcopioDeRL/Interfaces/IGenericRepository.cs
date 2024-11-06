@@ -13,6 +13,5 @@ namespace SysAcopioDeRL.Interfaces
         Task<T> GetByIdAsync(long id);
         Task<int> UpdateAsync(T entity);
         Task<int> DeleteAsync(long id);
-        Task<int> DeleteLogicAsync(long id);
     }
-}
+    }

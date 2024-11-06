@@ -24,6 +24,9 @@ public partial class Solicitud
     [Column("estado")]
     public bool Estado { get; set; }
 
+    [Column("is_cancel")]
+    public bool IsCancel { get; set; }
+
     [Column("nombre_solicitante")]
     [StringLength(150)]
     [Unicode(false)]

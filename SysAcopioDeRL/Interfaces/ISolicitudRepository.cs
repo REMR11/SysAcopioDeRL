@@ -8,7 +8,8 @@ using System.Xml.Linq;
 
 namespace SysAcopioDeRL.Interfaces
 {
-    public interface ISolicitudRepository : IGenericRepository<Solicitud>
+    
+    public interface ISolicitudRepository : IGenericRepository<Solicitud>, IMetodosNOOC<Solicitud>
     {
         Task<IEnumerable<Solicitud>> GetRecursosActivos(long idRecurso);
         Task<IEnumerable<Solicitud>> GetSolicitudesActivasAsync();
